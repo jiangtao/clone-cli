@@ -1,0 +1,5 @@
+export const noRepos = 'not find any repos' 
+export const invalidUser = 'user is invalid'
+export const invalidPass = 'pass is invalid'
+export const client_id = '1c13752cacf028f3bbb1'
+export const client_secret = '9df907e1829f5d9e9198b35c29eb1749e3e7e960'
