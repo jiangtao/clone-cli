@@ -28,7 +28,7 @@ export async function auth(user, pass) {
         Promise.reject(constants.invalidPass)
         return
     }
-    return await get(`https://api.github.com/user`, { user, pass })
+    return await get('https://api.github.com/user', { user, pass })
 }
 
 

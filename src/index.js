@@ -3,14 +3,14 @@
  * git clone -u --name --q  
  */
 import yargs from 'yargs'
-import { getUserRepos, getOrgRepos, auth } from './api'
-import { log, info, error, warn } from './log'
+import { getUserRepos, getOrgRepos } from './api'
+import { warn } from './log'
 import { client_id, client_secret } from './constants'
 import clone from './clone'
 
 const { u, name, q = {} } = yargs.argv
 
-; (async function () {
+; (async function() {
     let repos
     if (!name) {
         warn('name invalid')

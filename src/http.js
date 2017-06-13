@@ -1,5 +1,5 @@
 import Request from 'request'
-import { noRepos } from './error'
+import * as constants from './constants'
 
 export async function get(url, auth) {
     return new Promise((resolve, reject) => {
@@ -18,12 +18,12 @@ export async function get(url, auth) {
                 reject(err)
                 return
             }
-            if (response.statusCode == 200) {
+            if (response.statusCode === 200) {
                 resolve(body)
                 return
             }
 
-            reject(noRepos)
+            reject(constants.noRepos)
         })
     })
 }
