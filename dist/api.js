@@ -8,7 +8,7 @@ exports.auth = exports.getUserRepos = exports.getOrgRepos = undefined;
 let getOrgRepos = exports.getOrgRepos = (() => {
     var _ref = _asyncToGenerator(function* (org, opts) {
         if (!org) {
-            Promise.reject(noRepos);
+            Promise.reject(constants.noRepos);
             return;
         }
         return yield (0, _http.get)(`https://api.github.com/orgs/${org}/repos?${(0, _qs.stringify)(opts)}`);
@@ -43,7 +43,7 @@ let auth = exports.auth = (() => {
             Promise.reject(constants.invalidPass);
             return;
         }
-        return yield (0, _http.get)(`https://api.github.com/user`, { user, pass });
+        return yield (0, _http.get)('https://api.github.com/user', { user, pass });
     });
 
     return function auth(_x5, _x6) {

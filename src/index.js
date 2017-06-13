@@ -4,14 +4,20 @@
  */
 import yargs from 'yargs'
 import { getUserRepos, getOrgRepos } from './api'
-import { warn } from './log'
+import { log, warn } from './log'
 import { client_id, client_secret } from './constants'
+import Package from '../package.json'
 import clone from './clone'
 
-const { u, name, q = {} } = yargs.argv
+const { u, name, q = {}, version, v } = yargs.argv
 
-; (async function() {
+; (async function () {
     let repos
+
+    if (version || v) {
+        log(`clone version: ${Package.version}`)
+    }
+
     if (!name) {
         warn('name invalid')
         return

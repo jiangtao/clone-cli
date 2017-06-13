@@ -10,6 +10,10 @@ var _log = require('./log');
 
 var _constants = require('./constants');
 
+var _package = require('../package.json');
+
+var _package2 = _interopRequireDefault(_package);
+
 var _clone = require('./clone');
 
 var _clone2 = _interopRequireDefault(_clone);
@@ -22,8 +26,13 @@ function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, a
                                                                                                                                                                                                                                                                                                                                                                                                                                                                             */
 
 
-const { u, name, q = {} } = _yargs2.default.argv;_asyncToGenerator(function* () {
+const { u, name, q = {}, version, v } = _yargs2.default.argv;_asyncToGenerator(function* () {
     let repos;
+
+    if (version || v) {
+        (0, _log.log)(`clone version: ${_package2.default.version}`);
+    }
+
     if (!name) {
         (0, _log.warn)('name invalid');
         return;
