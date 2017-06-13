@@ -14,7 +14,7 @@ export async function get(url, auth) {
         }
 
         Request(options, (err, response, body) => {
-            if(err) {
+            if (err) {
                 reject(err)
                 return
             }

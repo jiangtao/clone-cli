@@ -7,20 +7,20 @@ const colors = {
     red: '\x1b[41m'
 }
 
-const print = color => (...args) => console.log.apply(console, [color, ...args])
+const print = color => (...args) => console.log(...[color, ...args])
 
-export function warn(...args){
+export function warn(...args) {
     return print(colors.yellow)(...args)
 }
 
-export function log(...args){
+export function log(...args) {
     return print(colors.blue)(...args)
 }
 
-export function error(...args){
+export function error(...args) {
     return print(colors.red)(...args)
 }
 
-export function info(...args){
+export function info(...args) {
     return print('')(...args)
 }

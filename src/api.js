@@ -5,7 +5,7 @@ import { get } from './http'
 
 export async function getOrgRepos(org, opts) {
     if (!org) {
-        Promise.reject(noRepos)
+        Promise.reject(constants.noRepos)
         return
     }
     return await get(`https://api.github.com/orgs/${org}/repos?${stringify(opts)}`)
