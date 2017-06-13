@@ -26,10 +26,11 @@
     "yargs": "^8.0.1"
   },
   "scripts": {
-    "prepush": "eslint src/**/*.js",
-    "precommit": "eslint src/**/*.js",
+    "lint": "eslint src/**/*.js",
+    "prepush": "npm run lint",
+    "precommit": "npm run lint",
     "compile": "node_modules/.bin/babel src -d dist",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run lint && npm run compile"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
