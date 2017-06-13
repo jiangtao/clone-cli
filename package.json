@@ -26,12 +26,15 @@
     "yargs": "^8.0.1"
   },
   "scripts": {
+    "prepush": "eslint src/**/*.js",
+    "precommit": "eslint src/**/*.js",
     "compile": "node_modules/.bin/babel src -d dist",
     "prepublish": "npm run compile"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.18.0",
+    "husky": "^0.13.4"
   }
 }
