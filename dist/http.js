@@ -1,41 +1,41 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.get = undefined;
 
 let get = exports.get = (() => {
-    var _ref = _asyncToGenerator(function* (url, auth) {
-        return new Promise(function (resolve, reject) {
-            let options = {
-                url,
-                json: true,
-                method: 'GET',
-                headers: {
-                    'User-Agent': 'jiangtao-git-clone'
-                },
-                auth
-            };
+  var _ref = _asyncToGenerator(function* (url, auth) {
+    return new Promise(function (resolve, reject) {
+      let options = {
+        url,
+        json: true,
+        method: 'GET',
+        headers: {
+          'User-Agent': 'jiangtao-git-clone'
+        },
+        auth
+      };
 
-            (0, _request2.default)(options, function (err, response, body) {
-                if (err) {
-                    reject(err);
-                    return;
-                }
-                if (response.statusCode === 200) {
-                    resolve(body);
-                    return;
-                }
+      (0, _request2.default)(options, function (err, response, body) {
+        if (err) {
+          reject(err);
+          return;
+        }
+        if (response.statusCode === 200) {
+          resolve(body);
+          return;
+        }
 
-                reject(constants.noRepos);
-            });
-        });
+        reject(constants.noRepos);
+      });
     });
+  });
 
-    return function get(_x, _x2) {
-        return _ref.apply(this, arguments);
-    };
+  return function get(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
 })();
 
 var _request = require('request');

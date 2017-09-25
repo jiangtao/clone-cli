@@ -1,54 +1,54 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 exports.auth = exports.getUserRepos = exports.getOrgRepos = undefined;
 
 let getOrgRepos = exports.getOrgRepos = (() => {
-    var _ref = _asyncToGenerator(function* (org, opts) {
-        if (!org) {
-            Promise.reject(constants.noRepos);
-            return;
-        }
-        return yield (0, _http.get)(`https://api.github.com/orgs/${org}/repos?${(0, _qs.stringify)(opts)}`);
-    });
+  var _ref = _asyncToGenerator(function* (org, opts) {
+    if (!org) {
+      Promise.reject(constants.noRepos);
+      return;
+    }
+    return yield (0, _http.get)(`https://api.github.com/orgs/${org}/repos?${(0, _qs.stringify)(opts)}`);
+  });
 
-    return function getOrgRepos(_x, _x2) {
-        return _ref.apply(this, arguments);
-    };
+  return function getOrgRepos(_x, _x2) {
+    return _ref.apply(this, arguments);
+  };
 })();
 
 let getUserRepos = exports.getUserRepos = (() => {
-    var _ref2 = _asyncToGenerator(function* (user, opts) {
-        if (!user) {
-            Promise.reject(constants.noRepos);
-            return;
-        }
-        return yield (0, _http.get)(`https://api.github.com/users/${user}/repos?${(0, _qs.stringify)(opts)}`);
-    });
+  var _ref2 = _asyncToGenerator(function* (user, opts) {
+    if (!user) {
+      Promise.reject(constants.noRepos);
+      return;
+    }
+    return yield (0, _http.get)(`https://api.github.com/users/${user}/repos?${(0, _qs.stringify)(opts)}`);
+  });
 
-    return function getUserRepos(_x3, _x4) {
-        return _ref2.apply(this, arguments);
-    };
+  return function getUserRepos(_x3, _x4) {
+    return _ref2.apply(this, arguments);
+  };
 })();
 
 let auth = exports.auth = (() => {
-    var _ref3 = _asyncToGenerator(function* (user, pass) {
-        if (!user) {
-            Promise.reject(constants.invalidUser);
-            return;
-        }
-        if (!pass) {
-            Promise.reject(constants.invalidPass);
-            return;
-        }
-        return yield (0, _http.get)('https://api.github.com/user', { user, pass });
-    });
+  var _ref3 = _asyncToGenerator(function* (user, pass) {
+    if (!user) {
+      Promise.reject(constants.invalidUser);
+      return;
+    }
+    if (!pass) {
+      Promise.reject(constants.invalidPass);
+      return;
+    }
+    return yield (0, _http.get)('https://api.github.com/user', { user, pass });
+  });
 
-    return function auth(_x5, _x6) {
-        return _ref3.apply(this, arguments);
-    };
+  return function auth(_x5, _x6) {
+    return _ref3.apply(this, arguments);
+  };
 })();
 
 var _qs = require('qs');
