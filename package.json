@@ -1,6 +1,6 @@
 {
   "name": "clone-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "git clone github repos",
   "bin": {
     "clone": "./bin/clone"
